@@ -10,7 +10,7 @@ const message = document.querySelector('textarea');
 form.addEventListener('input', throttle(onInput, 500));
 form.addEventListener('submit', addNewSubmit);
 
-let listData = getStorageData('feedback-form-state') || [];
+let listData = getStorageData('feedback-form-state') || {};
 
 refresh();
 
@@ -31,10 +31,11 @@ evt.preventDefault();
 if (!email.value || !message.value) {
     return alert('Both fields must be filled');
 }
-console.log({email: email.value});
-console.log({message: message.value});
+let forConsole = { email: email.value, message: message.value };
+console.log(forConsole);
 localStorage.removeItem('feedback-form-state');
-evt.target.reset();
+evt.currentTarget.reset();
+forConsole = {};
 }
 
 
