@@ -27,6 +27,6 @@ const imagesListArr = galleryItems
 allGallery.insertAdjacentHTML('beforeend', imagesListArr);
 
 const lightbox = new SimpleLightbox('.gallery a', {
-    aptionsData: 'alt',
+    captionsData: 'alt',
     captionDelay: 250,
 });
